@@ -2,9 +2,10 @@ import { Box, Chip, Container, IconButton, Stack, Typography } from "@mui/materi
 import { AnimatePresence, motion } from "framer-motion";
 import { useAppSelector } from "../../redux/store";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import type {} from 'redux-thunk/extend-redux';
 import { getRepositories } from "../../redux/reducers/github";
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { useDispatch } from "react-redux";
 
 interface ProjectsProps {
 

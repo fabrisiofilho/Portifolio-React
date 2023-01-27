@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Home } from "../pages/home/home";
-import { About } from "../pages/about/About";
-import { Projects } from "../pages/projects/Projects";
-import { Articles } from "../pages/articles/Articles";
-import { Contact } from "../pages/contact/Contact";
+import { About } from "../pages/about/about";
+import { Projects } from "../pages/projects/projects";
+import { Articles } from "../pages/articles/articles";
+import { Contact } from "../pages/contact/contact";
 
 export const routers = createBrowserRouter([
     {

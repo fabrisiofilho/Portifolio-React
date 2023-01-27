@@ -1,4 +1,4 @@
-import { Container, IconButton, Stack, Typography } from "@mui/material";
+import { Container, IconButton, Stack } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import EmailIcon from '@mui/icons-material/Email';

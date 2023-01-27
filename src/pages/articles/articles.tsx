@@ -1,4 +1,4 @@
-import { Container, Grid, Skeleton, Stack, Typography } from "@mui/material";
+import { Container, Grid, Skeleton } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 
 interface ArticlesProps {
