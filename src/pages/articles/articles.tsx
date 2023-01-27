@@ -17,7 +17,9 @@ export function Articles ({}: ArticlesProps) {
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 0.2 }}
             >
-                <Container maxWidth="lg">
+                <Container maxWidth="lg"
+                    sx={{padding: '30px'}} 
+                >
                     <Grid container columns={3} gap={2} justifyContent={'center'}>
                         <Skeleton variant="rounded" width={300} height={180} />
                         <Skeleton variant="rounded" width={300} height={180} />

@@ -36,6 +36,13 @@ export function Home ({}: HomeProps) {
     const navigate = useNavigate();
     const location = useLocation();
 
+    function validationPath(item: Tab) {
+        if (location.pathname === "/") {
+            return item.path === "/about"
+        }
+        return location.pathname === item.path
+    }
+
     return (
         <div style={{display: "flex", flexDirection: 'column'}}>
             <Stack
@@ -80,7 +87,7 @@ export function Home ({}: HomeProps) {
                         tabs.map((item:Tab) => (
                             <Button 
                             variant="text"
-                            disabled={location.pathname === item.path} 
+                            disabled={validationPath(item)} 
                             onClick={() => {
                                 setSelectedTab(item);
                                 navigate(item.path);

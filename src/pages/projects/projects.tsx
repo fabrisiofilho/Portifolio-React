@@ -35,7 +35,9 @@ export function Projects ({}: ProjectsProps) {
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 0.2 }}
             >
-                <Container maxWidth="md">
+                <Container 
+                sx={{padding: '30px'}} 
+                maxWidth="md">
                     <Typography 
                         sx={{
                             color: 'white',

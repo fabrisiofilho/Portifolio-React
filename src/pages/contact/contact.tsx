@@ -18,7 +18,9 @@ export function Contact ({}: ContactProps) {
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 0.2 }}
             >
-                <Container maxWidth="md">
+                <Container 
+                sx={{padding: '30px'}} 
+                maxWidth="md">
                     <Stack
                         direction="row" 
                         spacing={2}

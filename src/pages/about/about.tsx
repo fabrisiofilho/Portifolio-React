@@ -39,8 +39,24 @@ export function About ({}: AboutProps) {
                 transition={{ duration: 0.2 }}
             >
                 <Container 
-                    maxWidth="md" 
+                    maxWidth="md"
+                    sx={{padding: '30px'}} 
                 >
+                    <Box 
+                        sx={{
+                            borderRadius: '20px', 
+                            background: '#09090F',
+                            width: '100%',
+                            padding: '20px',
+                            marginBottom: '10px',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignContent: 'center'
+                        }}
+                    >
+                        <img src="https://avatars.githubusercontent.com/u/65460537" style={{width: '150px', borderRadius: '100px'}} alt="" />
+                    </Box>
+
                     <Box 
                         sx={{
                             borderRadius: '20px', 
