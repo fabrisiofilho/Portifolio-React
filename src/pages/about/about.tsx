@@ -2,9 +2,7 @@ import { Container, Box, Typography, Stack, IconButton, Grid} from "@mui/materia
 import { AnimatePresence, motion } from "framer-motion";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import SchoolIcon from '@mui/icons-material/School';
-import ApartmentIcon from '@mui/icons-material/Apartment';
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineOppositeContent, TimelineSeparator, timelineContentClasses } from "@mui/lab";
 
 interface AboutProps {
 
@@ -14,90 +12,87 @@ interface Exp {
     title: string,
     company: string,
     data: string,
-    body: string
+    body: string,
+    stacks: Stack[]
 }
 
 const steps: Exp[]= [
     {
-        title: 'Junior Backend Software Developer', 
+        title: 'Backend Software Developer', 
         company: 'Senai - Soluções Digitais',
         data: 'Março de 2022 -  Atualmente',
-        body: 'Manutenção e desenvolvimento de uma aplicação Java, utilizando o ecossistema Spring, e testes automatizado utilizando Junit, TestContainers, ArchUnit e Mockito.'
+        body: 'Manutenção e desenvolvimento de uma aplicação Java, utilizando o ecossistema Spring, e testes automatizado utilizando Junit, TestContainers, ArchUnit e Mockito.',
+        stacks: [ 
+            {
+                name: 'Spring Framework'
+            },
+            {
+                name: 'Java'
+            },
+            {
+                name: 'SQL'
+            },
+        ]
     },
     {
         title: 'Software Developer Internship', 
         company: 'Trier Sistemas',
         data: 'Julho de 2021 -  Março de 2022',
-        body: ''
+        body: 'Projeto de treinamento de programadores, onde obtive minha primeira experiencia da área. Onde obtive diversos conhecimenntos e experiencias.',
+        stacks: [
+            {
+                name: 'Spring Framework'
+            },
+            {
+                name: 'Java'
+            },
+            {
+                name: 'Angular'
+            },
+        ]
     },
 ]
 
 interface Stack {
     name: string,
-    icon: any,
-    exp: number
 }
 
 const stacks: Stack[] = [
     {
-        name: 'Spring Framework',
-        exp: 2,
-        icon: ''
+        name: 'Spring Framework'
     },
     {
-        name: 'Java',
-        exp: 2,
-        icon: ''
+        name: 'Java'
     },
     {
-        name: 'Node.js',
-        exp: 1,
-        icon: ''
+        name: 'Node.js'
     },
     {
-        name: 'PostgresQL',
-        exp: 2,
-        icon: ''
+        name: 'PostgresQL'
     },
     {
-        name: 'MariaDB & MySQL',
-        exp: 1,
-        icon: ''
+        name: 'MariaDB & MySQL'
     },
     {
-        name: 'Angular',
-        exp: 2,
-        icon: ''
+        name: 'Angular'
     },
     {
-        name: 'React',
-        exp: 1,
-        icon: ''
+        name: 'React'
     },
     {
-        name: 'TypeScript',
-        exp: 2,
-        icon: ''
+        name: 'TypeScript'
     },
     {
-        name: 'JavaScript',
-        exp: 2,
-        icon: ''
+        name: 'JavaScript'
     },
     {
-        name: 'Junit',
-        exp: 2,
-        icon: ''
+        name: 'Junit'
     },
     {
-        name: 'Docker',
-        exp: 2,
-        icon: ''
+        name: 'Docker'
     },
     {
-        name: 'API Rest',
-        exp: 2,
-        icon: ''
+        name: 'API Rest'
     }
 ]
 
@@ -137,7 +132,7 @@ export function About ({}: AboutProps) {
                             variant="h5" 
                             display="block" 
                             gutterBottom>
-                            Fabrisio filho
+                            Fabrisio Filho
                         </Typography>
                         <Typography 
                             sx={{
@@ -291,7 +286,7 @@ export function About ({}: AboutProps) {
                             variant="body2" 
                             display="block" 
                             gutterBottom>
-                            Periodo de duração - 2019 - 2022
+                            Periodo de duração: 2019 - 2022
                         </Typography>
                     </Box>
                     <Typography 
@@ -307,46 +302,94 @@ export function About ({}: AboutProps) {
                         gutterBottom>
                         Experiência Profissional
                     </Typography>
-                    {steps.map((step: Exp, index: number) => 
-                        <Box 
-                            sx={{
-                                borderRadius: '20px', 
-                                background: '#09090F',
-                                width: '100%',
-                                padding: '20px',
-                                marginBottom: '10px'
-                            }}
-                        >
-                            <Stack>
-                                <Typography
-                                    sx={{
-                                        color: '#D30059', 
-                                        fontWeight: 'bold'
-                                    }}
+                        {steps.map((step: Exp, index: number) => 
+                            <TimelineItem>
+                                <TimelineOppositeContent color="textSecondary">
+                                    <Typography
+                                        sx={{
+                                            color: 'white', 
+                                            fontWeight: '400'
+                                        }}
+                                        variant="body2" 
+                                    >
+                                        {step.data}
+                                    </Typography>
+                                </TimelineOppositeContent>
+                                <TimelineSeparator 
                                 >
-                                    {step.company}
-                                </Typography>
-                                <Typography
+                                <TimelineDot
                                     sx={{
-                                        color: 'white', 
-                                        fontWeight: '500'
+                                        backgroundColor: '#D30059',
                                     }}
-                                    variant="body1" 
-                                >
-                                    {step.title}
-                                </Typography>
-                                <Typography
+                                />
+                                { (index + 1) != steps.length ? 
+                                <TimelineConnector 
                                     sx={{
-                                        color: 'gray', 
-                                        fontWeight: '400'
+                                        backgroundColor: '#D30059',
                                     }}
-                                    variant="body2" 
-                                >
-                                    {step.data}
-                                </Typography>
-                            </Stack>
-                        </Box>
-                    )}
+                                /> : '' }
+                                </TimelineSeparator>
+                                <TimelineContent>
+                                    <Stack
+                                        sx={{background: '#09090F', padding: '20px', borderRadius: '20px'}}
+                                    >
+                                        <Typography
+                                            sx={{
+                                                color: '#D30059', 
+                                                fontWeight: 'bold'
+                                            }}
+                                        >
+                                            {step.company}
+                                        </Typography>
+                                        <Typography
+                                            sx={{
+                                                color: 'white', 
+                                                fontWeight: '500'
+                                            }}
+                                            variant="body1" 
+                                        >
+                                            {step.title}
+                                        </Typography>
+                                        <Typography
+                                            sx={{
+                                                color: 'gray', 
+                                                fontWeight: '400'
+                                            }}
+                                            variant="body2" 
+                                        >
+                                            {step.body}
+                                        </Typography>
+                                        <Grid  sx={{ marginTop: '5px' }} container gap={1}>
+                                            {
+                                                step.stacks.map((item) => (
+                                                    <Stack
+                                                        flexDirection={'row'}
+                                                        sx={{
+                                                            background: '#0D0D16',
+                                                            padding: '6px',
+                                                            borderRadius: '10px', 
+                                                        }}
+                                                    >
+                                                        <Typography 
+                                                            sx={{
+                                                                color: '#D30059',
+                                                                margin: 0,
+                                                                fontSize: '14px',
+                                                                fontWeight: 'bold'
+                                                            }}
+                                                            variant="body1" 
+                                                            display="block" 
+                                                            gutterBottom>
+                                                            {item.name}
+                                                        </Typography>
+                                                    </Stack>
+                                                ))
+                                            }
+                                        </Grid>
+                                    </Stack>
+                                </TimelineContent>
+                            </TimelineItem>
+                        )}
                 </Container>
             </motion.div>
         </AnimatePresence>
