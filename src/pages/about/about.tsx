@@ -1,6 +1,10 @@
-import { Container, Box, Typography, Stepper, Step, StepLabel, StepContent, Stack, Divider } from "@mui/material";
-import ApartmentIcon from '@mui/icons-material/Apartment';
+import { Container, Box, Typography, Stack, IconButton, Grid} from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import SchoolIcon from '@mui/icons-material/School';
+import ApartmentIcon from '@mui/icons-material/Apartment';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 interface AboutProps {
 
@@ -28,6 +32,75 @@ const steps: Exp[]= [
     },
 ]
 
+interface Stack {
+    name: string,
+    icon: any,
+    exp: number
+}
+
+const stacks: Stack[] = [
+    {
+        name: 'Spring Framework',
+        exp: 2,
+        icon: ''
+    },
+    {
+        name: 'Java',
+        exp: 2,
+        icon: ''
+    },
+    {
+        name: 'Node.js',
+        exp: 1,
+        icon: ''
+    },
+    {
+        name: 'PostgresQL',
+        exp: 2,
+        icon: ''
+    },
+    {
+        name: 'MariaDB & MySQL',
+        exp: 1,
+        icon: ''
+    },
+    {
+        name: 'Angular',
+        exp: 2,
+        icon: ''
+    },
+    {
+        name: 'React',
+        exp: 1,
+        icon: ''
+    },
+    {
+        name: 'TypeScript',
+        exp: 2,
+        icon: ''
+    },
+    {
+        name: 'JavaScript',
+        exp: 2,
+        icon: ''
+    },
+    {
+        name: 'Junit',
+        exp: 2,
+        icon: ''
+    },
+    {
+        name: 'Docker',
+        exp: 2,
+        icon: ''
+    },
+    {
+        name: 'API Rest',
+        exp: 2,
+        icon: ''
+    }
+]
+
 export function About ({}: AboutProps) {
     return (
         <AnimatePresence>
@@ -45,18 +118,48 @@ export function About ({}: AboutProps) {
                     <Box 
                         sx={{
                             borderRadius: '20px', 
-                            background: '#09090F',
                             width: '100%',
                             padding: '20px',
                             marginBottom: '10px',
                             display: 'flex',
+                            flexDirection: 'column',
                             justifyContent: 'center',
-                            alignContent: 'center'
+                            alignItems: 'center'
                         }}
                     >
                         <img src="https://avatars.githubusercontent.com/u/65460537" style={{width: '150px', borderRadius: '100px'}} alt="" />
+                        <Typography 
+                            sx={{
+                                color: 'white',
+                                marginTop: '10px',
+                                marginBottom: '0'
+                            }}
+                            variant="h5" 
+                            display="block" 
+                            gutterBottom>
+                            Fabrisio filho
+                        </Typography>
+                        <Typography 
+                            sx={{
+                                color: 'gray',
+                                margin: '0'
+                            }}
+                            variant="body1" 
+                            display="block" 
+                            gutterBottom>
+                            Software Developer 
+                        </Typography>
+                        <Stack
+                            flexDirection={'row'}
+                        >
+                            <IconButton aria-label="delete" size="medium" href="https://github.com/fabrisiofilho" target={'_blank'}>
+                                <GitHubIcon fontSize="inherit" />
+                            </IconButton>
+                            <IconButton aria-label="delete" size="medium" href="https://www.linkedin.com/in/fabrisio-filho/" target={'_blank'}>
+                                <LinkedInIcon fontSize="inherit" />
+                            </IconButton>
+                        </Stack>
                     </Box>
-
                     <Box 
                         sx={{
                             borderRadius: '20px', 
@@ -85,28 +188,68 @@ export function About ({}: AboutProps) {
                             display="block" 
                             gutterBottom>
                                 Desenvolvedor de sistema, apaixonado por tecnologia e muito focado em
-                                minha evolução profissional. Tenho experiencia em desenvolvimento ágil
-                                sempre busco a melhor forma de desenvolver com a utilização de boas
+                                minha evolução profissional. Tenho experiencia em desenvolvimento ágil.
+                                Sempre busco a melhor forma de desenvolver com a utilização de boas
                                 práticas e design patterns.
-                        </Typography>
-                        <h4 style={{color: '#D30059', marginBottom: '3px'}}>
-                            Minhas principais stacks:
-                        </h4>
-                        <ul style={{color: '#D30059', margin: 0}}>
-                            <li>Java</li>
-                            <li>Spring</li>
-                            <li>Angular</li>
-                            <li>Javascript</li>
-                            <li>SQL</li>
-                            <li>API REST</li>
-                            <li>JUnit</li>
-                        </ul>  
+                        </Typography> 
                     </Box>
                     <Typography 
                         sx={{
+                            display: 'flex',
+                            alignItems: 'center',
                             color: 'white',
+                            fontWeight: 'bold',
+                            fontSize: '18px'
                         }}
-                        variant="h5" 
+                        variant="button" 
+                        display="block" 
+                        gutterBottom>
+                        Principais competências
+                    </Typography>
+                    <Box 
+                        sx={{
+                            borderRadius: '20px', 
+                            width: '100%',
+                            padding: '20px',
+                            marginBottom: '10px'
+                        }}
+                    >
+                        <Grid container gap={1} spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                            {
+                                stacks.map((item) => (
+                                    <Stack
+                                        flexDirection={'row'}
+                                        sx={{
+                                            background: '#09090F',
+                                            padding: '10px',
+                                            borderRadius: '10px', 
+                                        }}
+                                    >
+                                        <Typography 
+                                            sx={{
+                                                color: '#D30059',
+                                                margin: 0,
+                                                fontWeight: 'bold'
+                                            }}
+                                            variant="body1" 
+                                            display="block" 
+                                            gutterBottom>
+                                            {item.name}
+                                        </Typography>
+                                    </Stack>
+                                ))
+                            }
+                        </Grid>
+                    </Box>
+                    <Typography 
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            color: 'white',
+                            fontWeight: 'bold',
+                            fontSize: '18px'
+                        }}
+                        variant="button" 
                         display="block" 
                         gutterBottom>
                         Formação acadêmica
@@ -119,7 +262,7 @@ export function About ({}: AboutProps) {
                             padding: '20px',
                             marginBottom: '10px'
                         }}
-                    >
+                    >   
                         <Typography 
                             sx={{
                                 color: '#D30059', 
@@ -153,9 +296,13 @@ export function About ({}: AboutProps) {
                     </Box>
                     <Typography 
                         sx={{
+                            display: 'flex',
+                            alignItems: 'center',
                             color: 'white',
+                            fontWeight: 'bold',
+                            fontSize: '18px'
                         }}
-                        variant="h5" 
+                        variant="button" 
                         display="block" 
                         gutterBottom>
                         Experiência Profissional

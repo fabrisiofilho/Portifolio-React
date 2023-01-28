@@ -38,15 +38,38 @@ export function Projects ({}: ProjectsProps) {
                 <Container 
                 sx={{padding: '30px'}} 
                 maxWidth="md">
-                    <Typography 
+                    <Box 
                         sx={{
-                            color: 'white',
+                            borderRadius: '20px', 
+                            background: '#09090F',
+                            width: '100%',
+                            padding: '20px',
+                            marginBottom: '10px'
                         }}
-                        variant="h5" 
-                        display="block" 
-                        gutterBottom>
-                        Repositórios
-                    </Typography>
+                    >
+                        <Typography 
+                            sx={{
+                                color: '#D30059', 
+                                fontWeight: 'bold'
+                            }}
+                            variant="button" 
+                            display="block" 
+                            gutterBottom>
+                            Projetos
+                        </Typography>
+                        <Typography 
+                            sx={{
+                                color: 'white', 
+                                fontWeight: '400'
+                            }}
+                            variant="body2" 
+                            display="block" 
+                            gutterBottom>
+                                Listagem de todos os meus projetos publicos no GitHub, são apenas alguns que foram "finalizados" ou versões, testes de framework entre outros.
+                                <br />
+                                Alguns desses projetos tem artigos publicados, e outros privados estão em cursos ou videoaula disponibilizadas no Youtube.
+                        </Typography>
+                    </Box>
                     {
                         repositories.map((repository) => (
                             <Box 
@@ -62,15 +85,34 @@ export function Projects ({}: ProjectsProps) {
                                     <Stack direction="row" spacing={2} alignItems={'center'}>
                                         <Typography 
                                             sx={{
-                                                color: 'white',
+                                                color: '#D30059', 
+                                                fontWeight: 'bold',
                                                 margin: 0
                                             }}
-                                            variant="h5" 
+                                            variant="button" 
                                             display="block" 
                                             gutterBottom>
                                             {repository.name}
                                         </Typography>
-                                        <Chip label={repository.language ?? 'Java'} color="primary" size="small" />
+                                        { repository.language ? 
+                                        <Stack
+                                        display={'block'}
+                                        >
+                                            <Typography 
+                                                sx={{
+                                                    minWidth: '100px',
+                                                    color: 'gray', 
+                                                    fontWeight: '400',
+                                                    backgroundColor: '#0D0D16',
+                                                    borderRadius: '10px',
+                                                    textAlign: 'center'
+                                                }}
+                                                variant="body2" 
+                                                display="block" 
+                                                gutterBottom>
+                                                    {repository.language}
+                                            </Typography>
+                                        </Stack> : ''}
                                     </Stack>
                                     <IconButton aria-label="github" size="small" href={repository.html_url} target="_blank">
                                         <GitHubIcon fontSize="small" />

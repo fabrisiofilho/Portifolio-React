@@ -1,8 +1,7 @@
-import { Container, IconButton, Stack } from "@mui/material";
+import { Box, Container, IconButton, Stack, Typography } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import EmailIcon from '@mui/icons-material/Email';
-import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 
 interface ContactProps {
 
@@ -21,23 +20,73 @@ export function Contact ({}: ContactProps) {
                 <Container 
                 sx={{padding: '30px'}} 
                 maxWidth="md">
-                    <Stack
-                        direction="row" 
-                        spacing={2}
-                        justifyContent={"center"}
+                    <Box 
+                        sx={{
+                            borderRadius: '20px', 
+                            background: '#09090F',
+                            width: '100%',
+                            padding: '20px',
+                            marginBottom: '10px'
+                        }}
                     >
-                        <IconButton aria-label="delete" size="large">
-                            <InstagramIcon fontSize="inherit" />
-                        </IconButton>
+                        <Typography 
+                            sx={{
+                                color: '#D30059', 
+                                fontWeight: 'bold'
+                            }}
+                            variant="button" 
+                            display="block" 
+                            gutterBottom>
+                            Como entrar em contato
+                        </Typography>
+                        <Typography 
+                            sx={{
+                                color: 'white', 
+                                fontWeight: '400'
+                            }}
+                            variant="body2" 
+                            display="block" 
+                            gutterBottom>
+                                Caso tenha interesse em entrar em contato comigo, pode ser feito via instagra, e-mail ou até linkedin.
+                        </Typography>
 
-                        <IconButton aria-label="delete" size="large">
-                            <EmailIcon fontSize="inherit" />
-                        </IconButton>
+                        <Stack
+                        direction="row"
+                        alignItems={'center'} 
+                        spacing={2}
+                        >
+                            <EmailIcon sx={{color: 'white'}} fontSize="medium" />
+                            <Typography 
+                            sx={{
+                                color: 'white', 
+                                fontWeight: '400'
+                            }}
+                            variant="body2" 
+                            display="block" 
+                            gutterBottom>
+                            fabrisiopbf@gmail.com
+                        </Typography>
+                        </Stack>
 
-                        <IconButton aria-label="delete" size="large">
-                            <HistoryEduIcon fontSize="inherit" />
-                        </IconButton>
-                    </Stack>
+                        <Stack
+                        direction="row" 
+                        alignItems={'center'} 
+                        spacing={2}
+                        >
+                            <InstagramIcon sx={{color: 'white'}} fontSize="medium" />
+                            <Typography 
+                                sx={{
+                                    color: 'white', 
+                                    fontWeight: '400'
+                                }}
+                                variant="body2" 
+                                display="block" 
+                                gutterBottom>
+                                fabrisiofilho.dev
+                            </Typography>
+                        </Stack>
+
+                    </Box>
                 </Container>
             </motion.div>
         </AnimatePresence>

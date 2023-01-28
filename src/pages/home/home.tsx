@@ -14,19 +14,19 @@ interface Tab {
 
 const tabs: Tab[] = [
     {
-        label: 'About',
+        label: 'Sobre',
         path: '/about'
     },
     {
-        label: 'Projects',
+        label: 'Projetos',
         path: '/projects'
     },
     {
-        label: 'Articles',
+        label: 'Artigos',
         path: '/articles'
     },
     {
-        label: 'Contact',
+        label: 'Contato',
         path: '/contact'
     }
 ]
