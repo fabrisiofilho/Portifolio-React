@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineOppositeContent, TimelineSeparator, timelineContentClasses } from "@mui/lab";
+import ApartmentIcon from '@mui/icons-material/Apartment';
 
 interface AboutProps {
 
@@ -302,94 +303,99 @@ export function About ({}: AboutProps) {
                         gutterBottom>
                         Experiência Profissional
                     </Typography>
-                        {steps.map((step: Exp, index: number) => 
-                            <TimelineItem>
-                                <TimelineOppositeContent color="textSecondary">
+                    <Timeline position="alternate">
+                    {steps.map((step: Exp, index: number) => 
+                        <TimelineItem>
+                            <TimelineOppositeContent color="textSecondary">
+                                <Typography
+                                    sx={{
+                                        color: 'white', 
+                                        fontWeight: '400',
+                                        marginTop: '15px'
+                                    }}
+                                    variant="body2" 
+                                >
+                                    {step.data}
+                                </Typography>
+                            </TimelineOppositeContent>
+                            <TimelineSeparator 
+                            >
+                            <TimelineDot
+                                sx={{
+                                    backgroundColor: '#D30059',
+                                }}
+                            >
+                                <ApartmentIcon></ApartmentIcon>
+                            </TimelineDot>
+                            { (index + 1) != steps.length ? 
+                            <TimelineConnector 
+                                sx={{
+                                    backgroundColor: '#D30059',
+                                }}
+                            /> : '' }
+                            </TimelineSeparator>
+                            <TimelineContent>
+                                <Stack
+                                    sx={{background: '#09090F', padding: '20px', borderRadius: '20px'}}
+                                >
+                                    <Typography
+                                        sx={{
+                                            color: '#D30059', 
+                                            fontWeight: 'bold'
+                                        }}
+                                    >
+                                        {step.company}
+                                    </Typography>
                                     <Typography
                                         sx={{
                                             color: 'white', 
+                                            fontWeight: '500'
+                                        }}
+                                        variant="body1" 
+                                    >
+                                        {step.title}
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            color: 'gray', 
                                             fontWeight: '400'
                                         }}
                                         variant="body2" 
                                     >
-                                        {step.data}
+                                        {step.body}
                                     </Typography>
-                                </TimelineOppositeContent>
-                                <TimelineSeparator 
-                                >
-                                <TimelineDot
-                                    sx={{
-                                        backgroundColor: '#D30059',
-                                    }}
-                                />
-                                { (index + 1) != steps.length ? 
-                                <TimelineConnector 
-                                    sx={{
-                                        backgroundColor: '#D30059',
-                                    }}
-                                /> : '' }
-                                </TimelineSeparator>
-                                <TimelineContent>
-                                    <Stack
-                                        sx={{background: '#09090F', padding: '20px', borderRadius: '20px'}}
-                                    >
-                                        <Typography
-                                            sx={{
-                                                color: '#D30059', 
-                                                fontWeight: 'bold'
-                                            }}
-                                        >
-                                            {step.company}
-                                        </Typography>
-                                        <Typography
-                                            sx={{
-                                                color: 'white', 
-                                                fontWeight: '500'
-                                            }}
-                                            variant="body1" 
-                                        >
-                                            {step.title}
-                                        </Typography>
-                                        <Typography
-                                            sx={{
-                                                color: 'gray', 
-                                                fontWeight: '400'
-                                            }}
-                                            variant="body2" 
-                                        >
-                                            {step.body}
-                                        </Typography>
-                                        <Grid  sx={{ marginTop: '5px' }} container gap={1}>
-                                            {
-                                                step.stacks.map((item) => (
-                                                    <Stack
-                                                        flexDirection={'row'}
+                                    <Grid  sx={{ marginTop: '5px' }} container gap={1}>
+                                        {
+                                            step.stacks.map((item) => (
+                                                <Stack
+                                                    flexDirection={'row'}
+                                                    sx={{
+                                                        background: '#0D0D16',
+                                                        padding: '6px',
+                                                        borderRadius: '10px', 
+                                                    }}
+                                                >
+                                                    <Typography 
                                                         sx={{
-                                                            background: '#0D0D16',
-                                                            padding: '6px',
-                                                            borderRadius: '10px', 
+                                                            color: '#D30059',
+                                                            margin: 0,
+                                                            fontSize: '14px',
+                                                            fontWeight: 'bold'
                                                         }}
-                                                    >
-                                                        <Typography 
-                                                            sx={{
-                                                                color: '#D30059',
-                                                                margin: 0,
-                                                                fontSize: '14px',
-                                                                fontWeight: 'bold'
-                                                            }}
-                                                            variant="body1" 
-                                                            display="block" 
-                                                            gutterBottom>
-                                                            {item.name}
-                                                        </Typography>
-                                                    </Stack>
-                                                ))
-                                            }
-                                        </Grid>
-                                    </Stack>
-                                </TimelineContent>
-                            </TimelineItem>
-                        )}
+                                                        variant="body1" 
+                                                        display="block" 
+                                                        gutterBottom>
+                                                        {item.name}
+                                                    </Typography>
+                                                </Stack>
+                                            ))
+                                        }
+                                    </Grid>
+                                </Stack>
+                            </TimelineContent>
+                        </TimelineItem>
+                    )}
+                    </Timeline>
                 </Container>
             </motion.div>
         </AnimatePresence>
