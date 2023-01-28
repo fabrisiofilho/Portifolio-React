@@ -14,10 +14,6 @@ interface Tab {
 
 const tabs: Tab[] = [
     {
-        label: 'Kickstart.dev',
-        path: '/course'
-    },
-    {
         label: 'Sobre',
         path: '/about'
     },
@@ -90,7 +86,7 @@ export function Home ({}: HomeProps) {
                     {
                         tabs.map((item:Tab) => (
                             <Button 
-                            variant={item.label === "Kickstart.dev" ? "contained": "text"}
+                            variant={"text"}
                             disabled={validationPath(item)} 
                             onClick={() => {
                                 setSelectedTab(item);
