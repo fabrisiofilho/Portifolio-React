@@ -50,7 +50,7 @@ export function Articles ({}: ArticlesProps) {
                                 Aguarde... Em desenvolvimento.
                         </Typography>
                     </Box>
-                    <Grid container columns={3} gap={2} justifyContent={'center'}>
+                    <Grid container columns={3} gap={3} justifyContent={'center'}>
                         <Stack alignItems={'center'} justifyContent={'center'} spacing={1}>
                             <Skeleton 
                                 sx={{borderRadius: '20px'}}

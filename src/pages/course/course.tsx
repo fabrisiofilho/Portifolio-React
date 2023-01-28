@@ -38,7 +38,8 @@ export function Course ({}: CourseProps) {
                         <Typography 
                             sx={{
                                 color: '#D30059', 
-                                fontWeight: 'bold'
+                                fontWeight: 'bold',
+                                fontSize: '20px'
                             }}
                             variant="button" 
                             display="block" 

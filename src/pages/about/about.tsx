@@ -248,7 +248,7 @@ export function About ({}: AboutProps) {
                         variant="button" 
                         display="block" 
                         gutterBottom>
-                        Formação acadêmica
+                        Formações acadêmicas
                     </Typography>
                     <Box 
                         sx={{
@@ -301,7 +301,7 @@ export function About ({}: AboutProps) {
                         variant="button" 
                         display="block" 
                         gutterBottom>
-                        Experiência Profissional
+                        Experiência
                     </Typography>
                     <Timeline position="alternate">
                     {steps.map((step: Exp, index: number) => 
